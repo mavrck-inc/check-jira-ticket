@@ -1,4 +1,4 @@
-#!/bin/sh -l
+#!/bin/bash -x
 
 shopt -s nocasematch
 JIRA_TICKET_PATTERN="(FRBI|CRI|IR|MREG|MVKPLTFRM|MVKENG|MAVRCK|RF)-[0-9]{3,6}"
