@@ -18,6 +18,10 @@ fi
 
 shopt -u nocasematch
 
+echo "${JIRA_SERVER}"
+echo '${JIRA_SERVER}'
+echo ${JIRA_SERVER}
+
 response=$(curl --request GET \
               --url "${JIRA_SERVER}/rest/api/3/issue/${JIRA_TICKET}" \
               --user "${JIRA_SERVICE_USER}:${JIRA_SERVICE_API_TOKEN}" \
