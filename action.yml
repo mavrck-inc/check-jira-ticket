@@ -1,0 +1,23 @@
+name: "Check JIRA Ticket"
+description: "Verify if a JIRA ticket exists based on the PR title or body"
+branding:
+  icon: 'check-circle'
+  color: 'green'
+
+inputs:
+  githubToken:
+    description: 'GitHub Token'
+    required: true
+  jiraApiToken:
+    description: 'JIRA Service API Token'
+    required: true
+  jiraServiceUser:
+    description: 'JIRA Service User'
+    required: true
+  jiraServer:
+    description: 'JIRA Server URL'
+    required: true
+
+runs:
+  using: "docker"
+  image: "Dockerfile"
