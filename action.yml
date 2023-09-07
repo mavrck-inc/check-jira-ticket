@@ -1,9 +1,6 @@
 name: "Check JIRA Ticket"
 description: "Verify if a JIRA ticket exists based on the PR title or body"
 inputs:
-  githubToken:
-    description: 'GitHub Token'
-    required: true
   jiraApiToken:
     description: 'JIRA Service API Token'
     required: true
