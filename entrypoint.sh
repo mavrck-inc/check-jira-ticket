@@ -32,12 +32,19 @@ do
 done
 
 response=$(curl --request GET \
-              --url "https://${JIRA_SERVER}/rest/api/3/issue/${JIRA_TICKET}" \
+              --url "${JIRA_SERVER}rest/api/3/issue/${JIRA_TICKET}" \
+              --user "${JIRA_SERVICE_USER}:${JIRA_SERVICE_API_TOKEN}" \
+              --header "Accept: application/json" \
+              --silent)
+
+response1=$(curl --request GET \
+              --url "https://${JIRA_SERVER}rest/api/3/issue/${JIRA_TICKET}" \
               --user "${JIRA_SERVICE_USER}:${JIRA_SERVICE_API_TOKEN}" \
               --header "Accept: application/json" \
               --silent)
 
 echo "response: $response"
+echo "response1: $response1"
 
 if [[ $(echo "$response" | jq -r '.key') == "$JIRA_TICKET" ]]; then
 echo "Valid JIRA ticket!"
