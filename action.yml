@@ -10,9 +10,6 @@ inputs:
   jiraServer:
     description: 'JIRA Server URL'
     required: true
-  githubToken:
-    description: 'Github Token'
-    required: true
 
 runs:
   using: "docker"
