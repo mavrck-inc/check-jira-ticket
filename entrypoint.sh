@@ -5,14 +5,14 @@ shopt -s nocasematch
 # Define the JIRA ticket pattern
 JIRA_TICKET_PATTERN="(FRBI|CRI|IR|MREG|MVKPLTFRM|MVKENG|MAVRCK|RF)-[0-9]{3,6}"
 
-# Get the PR number and repo information from the GitHub context
-PR_NUMBER=${{ github.event.pull_request.number }}
-REPO=${{ github.repository }}
+# Get the PR number and repo information from the environment variables
+PR_NUMBER=${PR_NUMBER}
+REPO=${REPO}
 
 # Use the GitHub API to get the latest title and body of the PR
 PR_DATA=$(curl --request GET \
                --url "https://api.github.com/repos/$REPO/pulls/$PR_NUMBER" \
-               --header "Authorization: Bearer ${{ secrets.GH_API_TOKEN }}" \
+               --header "Authorization: Bearer $GH_API_TOKEN" \
                --header "Accept: application/vnd.github.v3+json" \
                --silent)
 
